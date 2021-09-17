@@ -1,0 +1,76 @@
+.blackT {
+  color: rgb(15, 15, 15);
+}
+
+.purpleT {
+  color: rgb(74, 0, 134);
+}
+
+span {
+  color: rgb(141, 141, 141);
+}
+
+.logo {
+  cursor: pointer;
+  padding-bottom: 10px;
+  margin-left: 15px;
+  margin-top: 35px;
+}
+
+.headerContainer {
+  box-shadow: 0 3px 5px rgb(200, 200, 200);
+  display: flex;
+  flex-direction: row;
+}
+
+.mainLinks {
+  margin: 45px 0 0 60px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.links {
+  margin-left: 50px;
+  text-decoration: none;
+  color: rgb(70, 70, 70);
+  font-size: 18px;
+}
+
+.logLinks {
+  margin-left: 39%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 17%;
+}
+
+.signs {
+  margin-left: 10%;
+  text-decoration: none;
+  color: rgb(7, 94, 255);
+  border-radius: 4px;
+  width: 25%;
+  padding-top: 5px;
+  height: 30%;
+  text-align: center;
+  font-size: 18px;
+  background-color: #fff;
+}
+
+.signs:hover {
+  background-color: rgba(0, 140, 255, 0.158);
+  transition: all 0.4s ease;
+}
+
+.signss {
+  width: 80%;
+
+  background-color: rgb(69, 1, 126);
+  color: white;
+}
+
+.signss:hover {
+  background-color: rgb(49, 0, 88);
+  transition: all 0.4s ease;
+}
