@@ -4,7 +4,8 @@ import Why from "./Why";
 import Solutions from "./Solutions";
 import Products from "./Products";
 import Pricing from "./Pricing";
-import Signin from "./Signin";
-import Register from "./Register";
+import Signin from "./signin/Signin";
+import Register from "./signup/Register";
+import DashBoard from "./dashboard/DashBoard";
 
-export { Header, Home, Why, Solutions, Products, Pricing, Signin, Register };
+export { Header, Home, Why, Solutions, Products, Pricing, Signin, Register, DashBoard };
