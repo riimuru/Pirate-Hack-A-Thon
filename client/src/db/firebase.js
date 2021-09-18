@@ -1,5 +1,6 @@
 import firebase from 'firebase/compat/app';
-import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged} from "firebase/auth"
+import {child , ref, set, getDatabase, onValue, get} from'firebase/database'
+import {getAuth ,signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged} from "firebase/auth"
 
 const app = firebase.initializeApp({
     apiKey: "AIzaSyClbykQKn2Gapi9xIDTFvF-uTBEeFXI4rg",
@@ -12,4 +13,5 @@ const app = firebase.initializeApp({
   });
 
 export const authentication = getAuth(app);
-export {signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged}
+export const db = getDatabase(app)
+export {child ,get ,signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, ref, set, onValue}

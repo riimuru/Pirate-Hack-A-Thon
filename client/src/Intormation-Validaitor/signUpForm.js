@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { createUserWithEmailAndPassword, signOut } from '@firebase/auth';
-import { authentication } from '../db/firebase';
+import { authentication, set, ref, db, onValue } from '../db/firebase';
 import { errorPrefix } from '@firebase/util';
 const useValidate = (callback, validate) => {
   const [values, setValues] = useState({
@@ -24,19 +24,32 @@ const useValidate = (callback, validate) => {
     e.preventDefault();
     // setErrors(validate(values));
     // setIsSubmitting(true);
+    let usernameCheck = ''
+    onValue(ref(db, 'Users/'), (snapshot) => {
+      snapshot.forEach(function (childnode) {
+        if(childnode.child('username').val() === values.username) {
+          usernameCheck = childnode.child('username').val()
+          return;
+        }
+      })
+
+    })
     
-    if (values.username.length <= 3) {
+    if (values.username.length < 3) {
       setErrors({username: "Username must be at least 3 characters"})
+    } else if (usernameCheck === values.username) {
+      setErrors({username: "Username already used"})
     } else {
-      createUserWithEmailAndPassword(authentication ,values.email, values.password)
-      .then(() => {
-        console.log({
+      createUserWithEmailAndPassword(authentication,values.email, values.password)
+      .then((user) => {
+        set(ref(db, `Users/${user.user.uid}`), {
           username: values.username,
           email: values.email,
           password: values.password
+
         })
-        callback()
         signOut(authentication)
+        callback()
         
       })
       .catch((err) => {
@@ -65,7 +78,6 @@ const useValidate = (callback, validate) => {
 
         }
         })
-    
 
     }
   

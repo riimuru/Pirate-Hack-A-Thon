@@ -34,17 +34,6 @@ const App = () => {
     <React.Fragment>
       <Header />
       {
-        user ? (
-          <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/why-pirate-cloud" component={Why} />
-          <Route exact path="/solutions" component={Solutions} />
-          <Route exact path="/products" component={Products} />
-          <Route exact path="/pricing" component={Pricing} />
-          <Route exact path="/dashboard" component={DashBoard} />
-        </Switch>
-
-        ) : (
           <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/why-pirate-cloud" component={Why} />
@@ -54,7 +43,6 @@ const App = () => {
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/register" component={SignUp} />
         </Switch>
-        )
       }
 
     </React.Fragment>
